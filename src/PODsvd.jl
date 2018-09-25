@@ -33,7 +33,7 @@ Same as `PODsvd(X)` but overwrites memory.
 function PODsvd!(X; subtractmean::Bool = false)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     # Economy sized SVD
@@ -57,7 +57,7 @@ cell volume for a volume mesh.
 function PODsvd!(X,W::AbstractVector; subtractmean::Bool = false)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     # Take into account the weights

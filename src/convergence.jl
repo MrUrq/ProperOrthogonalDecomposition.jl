@@ -8,7 +8,7 @@ mean is done in place.
 function modeConvergence(X, stops::AbstractArray{<: AbstractRange}, numModes::Int; subtractmean::Bool = false, method = :svd)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     numPODs = size(stops,1)
@@ -61,7 +61,7 @@ Same as function modeConvergence(X, stops, numModes::Int) but using weights.
 function modeConvergence(X, W::Vector, stops::AbstractArray{<: AbstractRange}, numModes::Int; subtractmean::Bool = false, method = :svd)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     numPODs = size(stops,1)
@@ -118,7 +118,7 @@ function modeConvergence!(fileLoc, dataName, stops::AbstractArray{<: AbstractRan
     X = readdlm(fileLoc, ',')
     X = X[dataName]
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     numPODs = size(stops,1)
@@ -138,7 +138,7 @@ function modeConvergence!(fileLoc, dataName, stops::AbstractArray{<: AbstractRan
         X = readdlm(fileLoc, ',')
         X = X[dataName]
         if subtractmean
-            X .-= mean(X,2)
+            X .-= mean(X,dims=2)
         end
 
         if method == :svd
@@ -179,7 +179,7 @@ function modeConvergence!(fileLoc, dataName, W::Vector, stops::AbstractArray{<: 
     X = readdlm(fileLoc, ',')
     X = X[dataName]
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     numPODs = size(stops,1)
@@ -199,7 +199,7 @@ function modeConvergence!(fileLoc, dataName, W::Vector, stops::AbstractArray{<: 
         X = readdlm(fileLoc, ',')
         X = X[dataName]
         if subtractmean
-            X .-= mean(X,2)
+            X .-= mean(X,dims=2)
         end
 
         if method == :svd

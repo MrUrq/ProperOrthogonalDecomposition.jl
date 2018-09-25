@@ -35,7 +35,7 @@ cell volume for a volume mesh.
 function PODeig!(X,W::AbstractVector; subtractmean::Bool = false)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     # Number of snapshots
@@ -76,7 +76,7 @@ Same as `PODeig(X)` but overwrites memory.
 function PODeig!(X; subtractmean::Bool = false)
 
     if subtractmean
-        X .-= mean(X,2)
+        X .-= mean(X,dims=2)
     end
 
     # Number of snapshots

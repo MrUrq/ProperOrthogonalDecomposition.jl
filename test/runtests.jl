@@ -1,6 +1,7 @@
 using ProperOrthogonalDecomposition
 using Test
 using Random
+using Statistics
 
 # Define test matrix X with dimensions n×m, where n is number of data poitns and
 # m is the number of snapshots
@@ -8,7 +9,7 @@ using Random
 
 Random.seed!(1)
 X = rand(1000,10)
-X += 10
+X .+= 10
 Random.seed!(1)
 W = rand(1:0.2:10,1000)
 

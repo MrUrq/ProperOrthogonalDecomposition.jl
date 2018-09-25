@@ -1,4 +1,6 @@
 module ProperOrthogonalDecomposition
+using Statistics
+using LinearAlgebra
 
 export  PODBasis,
         POD,
