@@ -24,41 +24,9 @@ The package is registered and can be installed with `Pkg.add`.
 julia> Pkg.add("ProperOrthogonalDecomposition")
 ```
 
-
-### Reference
-[1]: Taira et al. "Modal Analysis of Fluid Flows: An Overview", arXiv:1702.01453 [physics], () http://arxiv.org/abs/1702.01453
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Features:
-
-* Creation of an optimised Latin Hypercube Sampling plan.
-* Generate an optimised subset of an existing plan.
-* Refine existing plan through mutation only.
-
-## Installation
-
-The package is registered and can be installed with `Pkg.add`.
-
-```julia
-julia> Pkg.add("ProperOrthogonalDecomposition")
-```
-
 ## Documentation
 
-- [**STABLE**][docs-stable-url] &mdash; **tagged version of the documentation.**
+- [**LATEST**][docs-stable-url] &mdash; **tagged version of the documentation.**
 
 
 ## Author
@@ -68,9 +36,6 @@ julia> Pkg.add("ProperOrthogonalDecomposition")
 [docs-stable-img]: https://img.shields.io/badge/docs-latest-blue.svg
 [docs-stable-url]: https://MrUrq.github.io/ProperOrthogonalDecomposition.jl/latest
 
-## Example LHC
-Example of optimised LHC plan for 120 points in 2 dimensions.
-<img src="docs/src/assets/120p2d.png">
-
 ### Reference
-[1]: Stuart Bates, Johann Sienz, and Vassili Toropov. "Formulation of the Optimal Latin Hypercube Design of Experiments Using a Permutation Genetic Algorithm", 45th AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics & Materials Conference, Structures, Structural Dynamics, and Materials and Co-located Conferences, () https://doi.org/10.2514/6.2004-2011
+[1]: Taira et al. "Modal Analysis of Fluid Flows: An Overview", arXiv:1702.01453 [physics], () http://arxiv.org/abs/1702.01453
+
