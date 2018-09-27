@@ -56,7 +56,7 @@ function plotconvergence(subset,convergence) # hide
                         marker_size=12) # hide
     
     data = [trace1, trace2, trace3] # hide
-    layout = Layout(height=200, # hide
+    layout = Layout(height=440, # hide
                     title="Time Convergence", # hide
                     xaxis=attr(title="Time"), # hide
                     yaxis=attr(title="Norm difference "), # hide
@@ -147,7 +147,7 @@ function plotconvergence(subset,convergence) # hide
                         marker_size=12) # hide
     
     data = [trace1, trace2, trace3] # hide
-    layout = Layout(height=200, # hide
+    layout = Layout(height=440, # hide
                     title="Sampling Frequency Convergence", # hide
                     xaxis=attr(title="1/Freq."), # hide
                     yaxis=attr(title="Norm difference "), # hide

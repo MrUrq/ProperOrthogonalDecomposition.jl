@@ -42,7 +42,7 @@ using PlotlyJS # hide
 
 function plotpoddata(Y) # hide
     trace = surface(x=Xgrid,y=tgrid,z=Y,colorscale="Viridis", cmax=7.5, cmin=-7.5) # hide
-    layout = Layout(height=200, # hide
+    layout = Layout(height=440, # hide
                     scene = (   xaxis=attr(title="Space"), # hide
                                 yaxis=attr(title="Time"), # hide
                                 zaxis=attr(title="z",range=[-10,10])), # hide
