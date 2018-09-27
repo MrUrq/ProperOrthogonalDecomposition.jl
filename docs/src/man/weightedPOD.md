@@ -62,8 +62,8 @@ And the first three singular values.
 ```@example weightedpod
 singularvals[1:3]
 ```
-The first mode has changed due to the local mesh refinement and is no longer giving the same results as it 
-was for the case with equidistant mesh.
+The first mode has changed due to the local mesh refinement compated to the previously
+presented case with equidistant mesh.
 
 ```@raw html
     <iframe src="../assets/finemeshfirstmode.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
@@ -95,7 +95,7 @@ singularvals[1:3]
 ### Uniform grid with weights
 
 Compare the singular values from the above two cases with the singular values 
-from the weighted POD on the equidistance mesh.
+from the weighted POD on the equidistant mesh.
 ```@example weightedpod
 t, x = range(0, stop=30, length=50), range(-10, stop=30, length=120)
 grid_resolution = repeat([step(x)],length(x))

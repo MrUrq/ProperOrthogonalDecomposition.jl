@@ -70,8 +70,8 @@ pkgpath = abspath(joinpath(dirname(Base.find_package("ProperOrthogonalDecomposit
 savedir = joinpath(pkgpath,"docs","src","assets","convergenceTime.html") # hide
 PlotlyJS.savehtml(p,savedir,:embed) # hide
 ```
-The history of convergence indicates when additional data no longer provides more information
-to the POD modes.
+The history of convergence indicates the point at which additional data no longer provides additional
+ information to the POD modes.
 
 ```@raw html
     <iframe src="../assets/convergenceTime.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
