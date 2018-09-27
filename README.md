@@ -9,7 +9,7 @@
 *ProperOrthogonalDecomposition* is a Julia package for performing the Proper Orthogonal modal Decomposition (POD) technique. The POD methods available in this package is the Singular Value Decomposition (SVD) based method and the eigen-decomposition based *method of snapshots*. The method is snapshots is the most
 commonly used method for fluid flow analysis where the number of datapoints is larger than the number of snapshots.
 
-The POD technique goes under several names; Karhunen-Loèven (KL), Principal Component Analysis (PCA) and Hotelling analysis. The method has been used for error analysis, reduced order modeling, fluid flow reconstruction, turbulent flow feature extraction, among others. A descriptive overview of the method is given in [1].
+The POD technique goes under several names; Karhunen-Loèven (KL), Principal Component Analysis (PCA) and Hotelling analysis. The method has been used for error analysis, reduced order modeling, fluid flow reconstruction, turbulent flow feature extraction, among others. A descriptive overview of the method is given in reference [1].
 
 Features:
 
