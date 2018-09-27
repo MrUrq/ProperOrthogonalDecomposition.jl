@@ -1,6 +1,0 @@
-authors = ["Magnus Urquhart <magnus.urquhart@gmail.com>"]
-name = "ProperOrthogonalDecomposition"
-uuid = "81652e9c-c003-11e8-3679-fb5804ac96c8"
-version = "0.1.0"
-
-[deps]

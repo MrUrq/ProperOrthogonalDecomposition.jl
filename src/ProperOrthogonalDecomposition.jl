@@ -6,15 +6,15 @@ export  PODBasis,
         POD,
         PODsvd,
         PODsvd!,
-        PODeig,
-        PODeig!,
+        PODeigen,
+        PODeigen!,
         modeConvergence,
         modeConvergence!
 
 include("types.jl")
 include("convergence.jl")
 include("PODsvd.jl")
-include("PODeig.jl")
+include("PODeigen.jl")
 
 """
     POD(X)

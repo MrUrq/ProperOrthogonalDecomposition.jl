@@ -1,14 +1,18 @@
-# LatinHypercubeSampling
+# ProperOrthogonalDecomposition
 
 ## Introduction
-*LatinHypercubeSampling* is a Julia package for the creation of optimised Latin Hypercube (LHC) Sampling Plans. The genetic optimisation algorithm is largely based on the work by Bates et al. [1]. The package includes additional functionality for the creation of an optimised subset of an existing plan.
+*ProperOrthogonalDecomposition* is a Julia package for performing the Proper Orthogonal modal Decomposition (POD) technique. The technique has been used 
+to, among other things, extract turbulent flow features. The POD methods available in this package is the Singular Value Decomposition (SVD) based method and the eigen-decomposition based *method of snapshots*. The method is snapshots is the most commonly used method for fluid flow analysis where the number of 
+datapoints is larger than the number of snapshots.
+
+The POD technique goes under several names; Karhunen-Loèven (KL), Principal Component Analysis (PCA) and Hotelling analysis. The method has been used for error analysis, reduced order modeling, fluid flow reconstruction, turbulent flow feature extraction, etc. A descriptive overview of the method is given in [1].
 
 ## Installation
 The package is registered and can be installed with `Pkg.add`.
 
 ```julia
-julia> Pkg.add("LatinHypercubeSampling")
+julia> Pkg.add("ProperOrthogonalDecomposition")
 ```
 
 ### Reference
-[1]: Stuart Bates, Johann Sienz, and Vassili Toropov. "Formulation of the Optimal Latin Hypercube Design of Experiments Using a Permutation Genetic Algorithm", 45th AIAA/ASME/ASCE/AHS/ASC Structures, Structural Dynamics & Materials Conference, Structures, Structural Dynamics, and Materials and Co-located Conferences, () https://doi.org/10.2514/6.2004-2011
+[1]: Taira et al. "Modal Analysis of Fluid Flows: An Overview", arXiv:1702.01453 [physics], () http://arxiv.org/abs/1702.01453

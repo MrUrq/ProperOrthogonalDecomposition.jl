@@ -2,6 +2,8 @@ using ProperOrthogonalDecomposition
 using Test
 using Random
 using Statistics
+using Pkg
+using DelimitedFiles
 
 # Define test matrix X with dimensions n×m, where n is number of data poitns and
 # m is the number of snapshots
@@ -16,10 +18,10 @@ W = rand(1:0.2:10,1000)
 @testset "Standard POD" begin
 
     PODbase, Σ = POD(X)
-    PODbaseEig, Σeig = PODeig(X)
+    PODbaseEig, Σeig = PODeigen(X)
     PODbaseSvd, Σsvd = PODsvd(X)
 
-    meanPODbaseEig, meanΣeig = PODeig(copy(X), subtractmean = true)
+    meanPODbaseEig, meanΣeig = PODeigen(copy(X), subtractmean = true)
     meanPODbaseSvd, meanΣsvd = PODsvd(copy(X), subtractmean = true)
 
     Σ₁ = 1050.362168606664
@@ -59,24 +61,24 @@ W = rand(1:0.2:10,1000)
     @testset "Rebuild solution" begin
         @test PODbaseEig.modes*PODbaseEig.coefficients ≈ X
         @test PODbaseSvd.modes*PODbaseSvd.coefficients ≈ X
-        @test meanPODbaseEig.modes*meanPODbaseEig.coefficients ≈ X .- mean(X,2)
-        @test meanPODbaseSvd.modes*meanPODbaseSvd.coefficients ≈ X .- mean(X,2)
+        @test meanPODbaseEig.modes*meanPODbaseEig.coefficients ≈ X .- mean(X,dims=2)
+        @test meanPODbaseSvd.modes*meanPODbaseSvd.coefficients ≈ X .- mean(X,dims=2)
     end
 end
 
 @testset "Weighted POD" begin
 
     PODbase, Σ = POD(X, W)
-    PODbaseEig, Σeig = PODeig(X,W)
+    PODbaseEig, Σeig = PODeigen(X,W)
     PODbaseSvd, Σsvd = PODsvd(X,W)
 
-    meanPODbaseEig, meanΣeig = PODeig(copy(X), W, subtractmean = true)
+    meanPODbaseEig, meanΣeig = PODeigen(copy(X), W, subtractmean = true)
     meanPODbaseSvd, meanΣsvd = PODsvd(copy(X), W, subtractmean = true)
 
-    Σ₁ = 2457.097163629827
-    Σ₂ = 19.250259794561828
-    meanΣ₁ = 23.33111514963416
-    meanΣ₂ = 19.253445808771126
+    Σ₁ = 2445.2807019537136
+    Σ₂ = 19.41742998859931
+    meanΣ₁ = 23.11141372908026
+    meanΣ₂ = 19.444770050580598
 
     @testset "POD using eigenvalue decomposition" begin
         @test Σeig[1] ≈ Σ₁
@@ -120,42 +122,25 @@ end
             1.3536726312063883 1.1047589549024917 0.9957138077649103 0  ]
     W₂ = ones(1000)
 
+    pkgpath = abspath(joinpath(dirname(Base.find_package("ProperOrthogonalDecomposition")), ".."))
+    testdataPath = joinpath(pkgpath, "test","testdata.csv")
+
     @testset "Convergence of number of included snapshots" begin
-        @test_throws ErrorException modeConvergence(X,[1:4,1:6,1:8,1:10],3,method = :sdv)
-        @test_throws ErrorException modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :sdv)
+        
+        @test modeConvergence(X,PODeigen,[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence(X,PODsvd,[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence!(()->readdlm(testdataPath, ','),PODeigen!,[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence!(()->readdlm(testdataPath, ','),PODsvd!,[1:4,1:6,1:8,1:10],3) ≈ A
 
-        @test modeConvergence(X,[1:4,1:6,1:8,1:10],3,method = :eig) ≈ A
-        @test modeConvergence(X,[1:4,1:6,1:8,1:10],3,method = :svd) ≈ A
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :eig) ≈ A
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :svd) ≈ A
-
-        @test modeConvergence(copy(X),[1:4,1:6,1:8,1:10],3,method = :eig,subtractmean = true) ≈ Amean
-        @test modeConvergence(copy(X),[1:4,1:6,1:8,1:10],3,method = :svd,subtractmean = true) ≈ Amean
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :eig,subtractmean = true) ≈ Amean
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :svd,subtractmean = true) ≈ Amean
     end
 
     @testset "Convergence of number of included snapshots with one weights" begin
-        @test_throws ErrorException modeConvergence(X,W₂,[1:4,1:6,1:8,1:10],3,method = :sdv)
-        @test_throws ErrorException modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4,1:6,1:8,1:10],3,method = :sdv)
+        
+        @test modeConvergence(X,x->PODeigen(x,W₂),[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence(X,x->PODsvd(x,W₂),[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence!(()->readdlm(testdataPath, ','),x->PODeigen!(x,W₂),[1:4,1:6,1:8,1:10],3) ≈ A
+        @test modeConvergence!(()->readdlm(testdataPath, ','),x->PODsvd!(x,W₂),[1:4,1:6,1:8,1:10],3) ≈ A
 
-        @test modeConvergence(X,W₂,[1:4,1:6,1:8,1:10],3,method = :eig) ≈ A
-        @test modeConvergence(X,W₂,[1:4,1:6,1:8,1:10],3,method = :svd) ≈ A
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",W₂,[1:4,1:6,1:8,1:10],3,method = :eig) ≈ A
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",W₂,[1:4,1:6,1:8,1:10],3,method = :svd) ≈ A
-
-        @test modeConvergence(copy(X),W₂,[1:4,1:6,1:8,1:10],3,method = :eig,subtractmean = true) ≈ Amean
-        @test modeConvergence(copy(X),W₂,[1:4,1:6,1:8,1:10],3,method = :svd,subtractmean = true) ≈ Amean
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",W₂,[1:4,1:6,1:8,1:10],3,method = :eig,subtractmean = true) ≈ Amean
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",W₂,[1:4,1:6,1:8,1:10],3,method = :svd,subtractmean = true) ≈ Amean
     end
 
-    B = [   0.013795717122127843 0.008763206763625376 0
-            1.076343280399526 0.5948830138034233 0
-            1.349157219627426 1.2987842173266941 0  ]
-
-    @testset "Convergence of step size" begin
-        @test modeConvergence(X,[1:4:10,1:2:10,1:1:10],3) ≈ B
-        @test modeConvergence!(Pkg.dir("POD")*"/test/testdata.csv","X",[1:4:10,1:2:10,1:1:10],3) ≈ B
-    end
 end

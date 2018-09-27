@@ -2,8 +2,7 @@
 """
     PODsvd(X)
 
-Uses the SVD method of snapshots to calculate the POD basis of X. Method of
-snapshots is efficient when number of data points n > number of snapshots m.
+Uses the SVD based decomposition technique to calculate the POD basis of X. 
 """
 function PODsvd(X; subtractmean::Bool = false)
 
@@ -37,7 +36,7 @@ function PODsvd!(X; subtractmean::Bool = false)
     end
 
     # Economy sized SVD
-    F = svdfact!(X)
+    F = svd!(X)
 
     # Mode coefficients
     a = Diagonal(F.S)*F.Vt
@@ -64,13 +63,13 @@ function PODsvd!(X,W::AbstractVector; subtractmean::Bool = false)
     X = sqrt.(W).*X
 
     # Economy sized SVD
-    F = svdfact!(X)
+    F = svd!(X)
 
     # Mode coefficients
     a = Diagonal(F.S)*F.Vt
-    phi = 1 ./sqrt.(W).*F.U
-
-    POD = PODBasis(a, phi)
+    Φ = 1 ./sqrt.(W).*F.U
+    
+    POD = PODBasis(a, Φ)
 
     return POD, F.S
 

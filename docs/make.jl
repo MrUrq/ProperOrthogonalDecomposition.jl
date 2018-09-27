@@ -1,9 +1,9 @@
-using Documenter, LatinHypercubeSampling
+using Documenter, ProperOrthogonalDecomposition
 
 makedocs(
-        modules = [LatinHypercubeSampling],
+        modules = [ProperOrthogonalDecomposition],
         format = :html,
-        sitename = "LatinHypercubeSampling.jl",
+        sitename = "ProperOrthogonalDecomposition.jl",
         strict = true,
         assets = ["assets/favicon.ico"],
         clean = true,
@@ -11,17 +11,17 @@ makedocs(
         pages = Any[
                 "Home" => "index.md",
                 "Manual" => Any[
-                        "man/lhcoptim.md",
-                        "man/sublhcoptim.md",
-                        "man/refinelhc.md",
+                        "man/POD.md",
+                        "man/weightedPOD.md",
+                        "man/convergence.md",
                 ]
         ]
 )
 
 deploydocs(
-    repo = "github.com/MrUrq/LatinHypercubeSampling.jl.git",
+    repo = "github.com/MrUrq/ProperOrthogonalDecomposition.jl.git",
     target = "build",
-    julia = "0.6",
+    julia = "0.7",
     deps = nothing,
     make = nothing
 )
