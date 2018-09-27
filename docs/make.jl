@@ -21,7 +21,7 @@ makedocs(
 deploydocs(
     repo = "github.com/MrUrq/ProperOrthogonalDecomposition.jl.git",
     target = "build",
-    julia = "0.7",
+    julia = "1.0",
     deps = nothing,
     make = nothing
 )
