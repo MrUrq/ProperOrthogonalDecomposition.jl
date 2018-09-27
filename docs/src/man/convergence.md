@@ -91,7 +91,7 @@ loadFun = ()->readdlm("path/to/data/dataset.csv", ',')
 #POD the data inplace and reload it into memory each time.
 convergence = modeConvergence!(loadFun,PODeigen!,ranges,3)
 ```
-This can also be done for a the weighted POD with
+This can also be done for a weighted POD with
 ```@julia
 convergence = modeConvergence!(loadFun,X->PODeigen!(X,W),ranges,3)
 ```
