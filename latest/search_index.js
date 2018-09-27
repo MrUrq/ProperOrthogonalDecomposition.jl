@@ -245,7 +245,7 @@ var documenterSearchIndex = {"docs": [
     "page": "Mode convergence",
     "title": "Convergence inplace",
     "category": "section",
-    "text": "Datasets can quickly become large which is why an inplace method is available where the user supplies a function to load the data.using DelimitedFiles\n\n#Anonymous function with zero arguments\nloadFun = ()->readdlm(\"path/to/data/dataset.csv\", \',\')\n\n#POD the data inplace and reload it into memory each time.\nconvergence = modeConvergence!(loadFun,PODeigen!,ranges,3)This can also be done for a weighted POD withconvergence = modeConvergence!(loadFun,X->PODeigen!(X,W),ranges,3)note: Note\nThe use of a delimited files, such as a *.csv in the above example,  is not advisable if memory is a concern. Use a binary file format such as HDF5 for example. "
+    "text": "Datasets can quickly become large which is why an inplace method is available where the user supplies a function to load the data.using DelimitedFiles\n\n#Anonymous function with zero arguments\nloadFun = ()->readdlm(\"path/to/data/dataset.csv\", \',\')\n\n#POD the data inplace and reload it into memory each time.\nconvergence = modeConvergence!(loadFun,PODeigen!,ranges,3)This can also be done for a the weighted POD withconvergence = modeConvergence!(loadFun,X->PODeigen!(X,W),ranges,3)note: Note\nThe use of a delimited files, such as a *.csv in the above example,  is not advisable if memory is a concern. Use a binary file format such as HDF5 for example. "
 },
 
 {
