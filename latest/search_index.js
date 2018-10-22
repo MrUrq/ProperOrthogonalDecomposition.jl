@@ -201,7 +201,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "man/convergence.html#ProperOrthogonalDecomposition.modeConvergence-Tuple{AbstractArray,Any,AbstractArray{#s11,N} where N where #s11<:AbstractRange,Int64}",
+    "location": "man/convergence.html#ProperOrthogonalDecomposition.modeConvergence-Tuple{AbstractArray,Any,AbstractArray{#s12,N} where N where #s12<:AbstractRange,Int64}",
     "page": "Mode convergence",
     "title": "ProperOrthogonalDecomposition.modeConvergence",
     "category": "method",
@@ -209,7 +209,7 @@ var documenterSearchIndex = {"docs": [
 },
 
 {
-    "location": "man/convergence.html#ProperOrthogonalDecomposition.modeConvergence!-Tuple{Any,Any,AbstractArray{#s11,N} where N where #s11<:AbstractRange,Int64}",
+    "location": "man/convergence.html#ProperOrthogonalDecomposition.modeConvergence!-Tuple{Any,Any,AbstractArray{#s12,N} where N where #s12<:AbstractRange,Int64}",
     "page": "Mode convergence",
     "title": "ProperOrthogonalDecomposition.modeConvergence!",
     "category": "method",
