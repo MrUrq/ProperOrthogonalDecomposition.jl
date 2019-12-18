@@ -1,11 +1,11 @@
 using Documenter, ProperOrthogonalDecomposition
 
-makedocs(
+makedocs(;
         modules = [ProperOrthogonalDecomposition],
-        format = :html,
+        format = Documenter.HTML(   assets = ["assets/favicon.ico"],
+                                prettyurls = get(ENV, "CI", nothing) == "true"),
         sitename = "ProperOrthogonalDecomposition.jl",
         strict = true,
-        assets = ["assets/favicon.ico"],
         clean = true,
         checkdocs = :none,
         pages = Any[
@@ -19,9 +19,5 @@ makedocs(
 )
 
 deploydocs(
-    repo = "github.com/MrUrq/ProperOrthogonalDecomposition.jl.git",
-    target = "build",
-    julia = "1.0",
-    deps = nothing,
-    make = nothing
+    repo = "github.com/MrUrq/ProperOrthogonalDecomposition.jl.git"
 )
