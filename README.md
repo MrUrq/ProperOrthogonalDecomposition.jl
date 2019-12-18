@@ -26,15 +26,15 @@ julia> Pkg.add("ProperOrthogonalDecomposition")
 
 ## Documentation
 
-- [**LATEST**][docs-stable-url] &mdash; **tagged version of the documentation.**
+- [**STABLE**][docs-stable-url] &mdash; **tagged version of the documentation.**
 
 
 ## Author
 
 - Magnus Urquhart - [@MrUrq](https://github.com/MrUrq/)
 
-[docs-stable-img]: https://img.shields.io/badge/docs-latest-blue.svg
-[docs-stable-url]: https://MrUrq.github.io/ProperOrthogonalDecomposition.jl/latest
+[docs-stable-img]: https://img.shields.io/badge/docs-stable-blue.svg
+[docs-stable-url]: https://MrUrq.github.io/ProperOrthogonalDecomposition.jl/stable
 
 ### Reference
 [1]: Taira et al. "Modal Analysis of Fluid Flows: An Overview", arXiv:1702.01453 [physics], () http://arxiv.org/abs/1702.01453

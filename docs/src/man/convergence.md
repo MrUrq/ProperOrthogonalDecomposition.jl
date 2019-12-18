@@ -74,7 +74,7 @@ The history of convergence indicates the point at which additional data no longe
  information to the POD modes.
 
 ```@raw html
-    <iframe src="../assets/convergenceTime.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/convergenceTime.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
 ```
 
 
@@ -169,5 +169,5 @@ PlotlyJS.savehtml(p,savedir,:embed) # hide
     modes themselves are poorly represented.
 
 ```@raw html
-    <iframe src="../assets/convergenceFreq.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/convergenceFreq.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
 ```

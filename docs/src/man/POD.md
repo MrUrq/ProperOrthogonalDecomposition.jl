@@ -58,7 +58,7 @@ PlotlyJS.savehtml(p,savedir,:embed) # hide
 Our data `Y` looks like this
 
 ```@raw html
-    <iframe src="../assets/poddata.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/poddata.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
 ```
 
 
@@ -78,7 +78,7 @@ Note that the above used `POD(Y)` which defaults to the SVD based apparoch.
 The first mode over the time series looks like this
 
 ```@raw html
-    <iframe src="../assets/podfirstmode.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/podfirstmode.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
 ```
 
 
