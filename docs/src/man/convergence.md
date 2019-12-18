@@ -74,9 +74,8 @@ The history of convergence indicates the point at which additional data no longe
  information to the POD modes.
 
 ```@raw html
-    <iframe src="../../assets/convergenceTime.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/convergenceTime.html" style="width: 100%; height: 540px; border: none" seamless="seamless" scrolling="no"></iframe>
 ```
-
 
 ### Convergence inplace
 Datasets can quickly become large which is why an inplace method is available where
@@ -169,5 +168,5 @@ PlotlyJS.savehtml(p,savedir,:embed) # hide
     modes themselves are poorly represented.
 
 ```@raw html
-    <iframe src="../../assets/convergenceFreq.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/convergenceFreq.html" style="width: 100%; height: 540px; border: none" seamless="seamless" scrolling="no"></iframe>
 ```

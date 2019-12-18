@@ -66,7 +66,7 @@ The first mode has changed due to the local mesh refinement compated to the prev
 presented case with equidistant mesh.
 
 ```@raw html
-    <iframe src="../../assets/finemeshfirstmode.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/finemeshfirstmode.html" style="width: 100%; height: 540px; border: none" seamless="seamless" scrolling="no"></iframe>
 ```
 
 ### Non-uniform grid *with* weights
@@ -89,7 +89,7 @@ And the first three singular values.
 singularvals[1:3]
 ```
 ```@raw html
-    <iframe src="../../assets/finemeshfirstmodeweighted.html" height="540" width="765" frameborder="0" seamless="seamless" scrolling="no"></iframe>
+    <iframe src="../../assets/finemeshfirstmodeweighted.html" style="width: 100%; height: 540px; border: none" seamless="seamless" scrolling="no"></iframe>
 ```
 
 ### Uniform grid with weights
@@ -116,11 +116,3 @@ And the first three singular values.
 ```@example weightedpod
 singularvals[1:3]
 ```
-
-
-
-
-
-
-
-
