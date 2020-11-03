@@ -2,9 +2,15 @@
 language: julia
 os:
   - linux
+  - osx
 julia:
   - 1.0
   - nightly
+branches:
+  only:
+    - master
+    - /^release-.*$/
+    - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 notifications:
   email: false
 git:
@@ -12,6 +18,9 @@ git:
 
 ## Package documentation
 jobs:
+  allow_failures:
+    - julia: nightly
+  fast_finish: true
   include:
     - stage: "Documentation"
       julia: 1.0
