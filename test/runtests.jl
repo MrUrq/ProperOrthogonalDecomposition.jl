@@ -1,19 +1,18 @@
 using ProperOrthogonalDecomposition
 using Test
-using Random
+using StableRNGs
 using Statistics
-using Pkg
 using DelimitedFiles
 
 # Define test matrix X with dimensions n×m, where n is number of data poitns and
 # m is the number of snapshots
 # W is the weight matrix representing the cell volume
 
-Random.seed!(1)
-X = rand(1000,10)
+rng = StableRNGs.StableRNG(1)
+X = rand(rng,1000,10)
 X .+= 10
-Random.seed!(1)
-W = rand(1:0.2:10,1000)
+rng = StableRNGs.StableRNG(1)
+W = rand(rng,1:0.2:10,1000)
 
 @testset "Standard POD" begin
 
@@ -24,10 +23,10 @@ W = rand(1:0.2:10,1000)
     meanPODbaseEig, meanΣeig = PODeigen(copy(X), subtractmean = true)
     meanPODbaseSvd, meanΣsvd = PODsvd(copy(X), subtractmean = true)
 
-    Σ₁ = 1050.362168606664
-    Σ₂ = 8.301301177004774
-    meanΣ₁ = 9.878480670625322
-    meanΣ₂ = 8.30589586913458
+    Σ₁ = 1050.0370061587332
+    Σ₂ = 8.413650551681984
+    meanΣ₁ = 9.964071096830972
+    meanΣ₂ = 8.42358075601378
 
     @testset "POD using eigenvalue decomposition" begin
         @test Σeig[1] ≈ Σ₁
@@ -75,10 +74,10 @@ end
     meanPODbaseEig, meanΣeig = PODeigen(copy(X), W, subtractmean = true)
     meanPODbaseSvd, meanΣsvd = PODsvd(copy(X), W, subtractmean = true)
 
-    Σ₁ = 2445.2807019537136
-    Σ₂ = 19.41742998859931
-    meanΣ₁ = 23.11141372908026
-    meanΣ₂ = 19.444770050580598
+    Σ₁ = 2462.447359829031
+    Σ₂ = 19.570713247455668
+    meanΣ₁ = 23.470360231176947
+    meanΣ₂ = 19.595332053746322
 
     @testset "POD using eigenvalue decomposition" begin
         @test Σeig[1] ≈ Σ₁
@@ -114,16 +113,12 @@ end
 end
 
 @testset "Mode convergence" begin
-    A = [   0.010197212000627108 0.007070856617510225 0.004345509205119795 0
-            0.6179627074745591 0.5476731024048103 0.12030902309667643 0
-            1.377162205777348 0.8636384160114929 0.3197534098872419 0   ]
-    Amean =[0.6322816398505274 0.5534565187905752 0.13120270384723295 0
-            1.3821479511006756 0.8593667661723656 0.3083628970324381 0
-            1.3536726312063883 1.1047589549024917 0.9957138077649103 0  ]
+    A = [0.010164609073873544 0.006921747306424847 0.004321454495431182 0.0;
+         0.7274414547632297 0.6102769856096316 0.2273767387120779 0.0;
+         1.1710785171906266 1.1955870815537555 0.12812520121296264 0.0]
     W₂ = ones(1000)
 
-    pkgpath = abspath(joinpath(dirname(Base.find_package("ProperOrthogonalDecomposition")), ".."))
-    testdataPath = joinpath(pkgpath, "test","testdata.csv")
+    testdataPath = joinpath(dirname(pathof(ProperOrthogonalDecomposition)),"..","test","testdata.csv")
 
     @testset "Convergence of number of included snapshots" begin
         
