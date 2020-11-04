@@ -1,7 +1,7 @@
 name = "ProperOrthogonalDecomposition"
 uuid = "78421dfc-ac16-5d69-8300-c22153e3d0b6"
 authors = ["Magnus Urquhart <magnus.urquhart@gmail.com>"]
-version = "1.0.2"
+version = "1.0.3"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
