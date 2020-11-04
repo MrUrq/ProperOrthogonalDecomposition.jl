@@ -4,7 +4,7 @@
 
 | **Documentation** | **Build & Testing Status** |
 |:-----------------:|:--------------------------:|
-[![][docs-stable-img]][docs-stable-url] | [![Build Status](https://travis-ci.org/MrUrq/ProperOrthogonalDecomposition.jl.svg?branch=master)](https://travis-ci.org/MrUrq/ProperOrthogonalDecomposition.jl) [![Coverage Status](https://coveralls.io/repos/github/MrUrq/ProperOrthogonalDecomposition.jl/badge.svg?branch=master)](https://coveralls.io/github/MrUrq/ProperOrthogonalDecomposition.jl?branch=master) [![codecov.io](http://codecov.io/github/MrUrq/ProperOrthogonalDecomposition.jl/coverage.svg?branch=master)](http://codecov.io/github/MrUrq/ProperOrthogonalDecomposition.jl?branch=master) | 
+[![][docs-stable-img]][docs-stable-url] | [![Build Status](https://travis-ci.org/MrUrq/ProperOrthogonalDecomposition.jl.svg?branch=master)](https://travis-ci.org/MrUrq/ProperOrthogonalDecomposition.jl) [![codecov.io](http://codecov.io/github/MrUrq/ProperOrthogonalDecomposition.jl/coverage.svg?branch=master)](http://codecov.io/github/MrUrq/ProperOrthogonalDecomposition.jl?branch=master) | 
 
 *ProperOrthogonalDecomposition* is a Julia package for performing the Proper Orthogonal modal Decomposition (POD) technique. The POD methods available in this package is the Singular Value Decomposition (SVD) based method and the eigen-decomposition based *method of snapshots*. The method of snapshots is the most
 commonly used method for fluid flow analysis where the number of datapoints is larger than the number of snapshots.
